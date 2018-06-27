@@ -8,6 +8,13 @@ class Article extends Model
     protected $fillable = [
         'cate_id',
         'title',
-        'content'
+        'content',
+        'tags'
     ];
+
+    public function category()
+    {
+        return $this->hasOne('App\Models\Category', 'id', 'cate_id');
+    }
+
 }

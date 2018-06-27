@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Article;
+use App\Models\Tag;
 use Request;
 
 use App\Http\Requests\ArticleForm;
@@ -17,7 +18,8 @@ class ArticleController extends Controller
             $data = [
                 'title' => $article->input('title'),
                 'cate_id' => $article->input('cate_id'),
-                'content' => $article->input('content')
+                'content' => $article->input('content'),
+                'tags' => Tag::parseFromString($article->input('tags'))
             ];
 
             if ($article = Article::create($data)) {

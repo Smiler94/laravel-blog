@@ -16,7 +16,10 @@ Route::get('/', function () {
 });
 
 Route::resource('article', 'ArticleController');
+Route::resource('category', 'CategoryController');
 
 Route::group(['prefix'=>'admin'], function() {
-     Route::resource('article', 'Admin\ArticleController');
+    Route::resource('article', 'Admin\ArticleController');
+    Route::resource('category', 'Admin\CategoryController');
+    Route::resource('tag', 'Admin\TagController');
 });
