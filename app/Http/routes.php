@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/listing', 'ArticleController@listing');
+
 Route::resource('article', 'ArticleController');
 Route::resource('category', 'CategoryController');
 

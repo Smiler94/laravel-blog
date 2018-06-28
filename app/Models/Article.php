@@ -17,4 +17,15 @@ class Article extends Model
         return $this->hasOne('App\Models\Category', 'id', 'cate_id');
     }
 
+    public static function getNew($limit = 4)
+    {
+        $model = self::select('*')->orderBy('id', 'DESC')->simplePaginate($limit);
+
+        if ($model) {
+            foreach($model as $article) {
+                $article->category;
+            }
+        }
+        return $model;
+    }
 }

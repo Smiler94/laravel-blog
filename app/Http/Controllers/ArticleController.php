@@ -21,4 +21,9 @@ class ArticleController extends Controller
         $article->tags = Tag::getByIds($article->tags);
         return $this->success($article);
     }
+
+    public function listing()
+    {
+        return $this->success(Article::getNew());
+    }
 }
