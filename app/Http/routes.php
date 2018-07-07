@@ -25,3 +25,7 @@ Route::group(['prefix'=>'admin'], function() {
     Route::resource('category', 'Admin\CategoryController');
     Route::resource('tag', 'Admin\TagController');
 });
+Route::auth();
+Route::post('/admin/login', 'Auth\AuthController@login');
+
+Route::get('/home', 'HomeController@index');
